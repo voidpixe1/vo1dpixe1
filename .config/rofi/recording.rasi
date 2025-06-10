@@ -1,0 +1,103 @@
+* {
+g-spacing: 10px;
+g-margin: 2px;
+b-color: #282828FF;
+fg-color: #d4be98FF;
+fgp-color: #a89984FF;
+b-radius: 4px;
+g-padding: 8px;
+hl-color: #d4be98FF;
+hlt-color: #282828FF;
+alt-color: #28282800;
+wbg-color: #00000020;
+w-border: 2px solid;
+w-border-color: #d4be98FF;
+w-padding: 12px;
+}
+
+configuration {
+    font: "DejaVuSansM Nerd Font Mono 12";
+    show-icons: false;
+    display-drun: "";
+}
+
+listview {
+    dynamic-width: true;
+    background-color: transparent;
+    columns: 1;
+    lines: 7;
+    fixed-height: false;
+    fixed-columns: false;
+    cycle: false;
+    scrollbar: false;
+    border: 0px solid;
+}
+
+window {
+    transparency: "real";
+    width: 400px;
+    height: 205px;
+    border-radius: @b-radius;
+    background-color: @wbg-color;
+    border: @w-border;
+    border-color: @w-border-color;
+    padding: @w-padding;
+}
+
+prompt {
+    enabled: false;
+    text-color: @fg-color;
+}
+
+inputbar {
+    background-color: transparent;
+    children: ["prompt", "entry"];
+    spacing: @g-spacing;
+}
+
+entry {
+    placeholder: "Choose Input Audio Device";
+    text-color: @fg-color;
+    horizontal-align: 0.45;
+    background-color: transparent;
+    placeholder-color: @fgp-color;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    children: ["inputbar", "listview", "message"];
+}
+
+element {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    border: 0px solid;
+    border-radius: @b-radius;
+    border-color: @b-color;
+    background-color: transparent;
+    text-color: @fg-color;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element normal.normal {
+	background-color: transparent;
+	text-color: @fg-color;
+}
+
+element selected.normal {
+	background-color: @hl-color;
+	text-color: @hlt-color;
+}
+
+message {
+    background-color: red;
+    border: 0px solid;
+}

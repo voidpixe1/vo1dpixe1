@@ -1,0 +1,2 @@
+page.toc.enabled = false
+page.toc.title = { Custom = "My Custom Title" }

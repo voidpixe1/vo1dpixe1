@@ -1,0 +1,97 @@
+* {
+    font-family: "JetBrains Mono Nerd Font";
+    font-size: 11px;
+    min-height: 0;
+    transition: background-color .2s ease-out;
+}
+
+window#waybar {
+    padding: 0;
+    margin: -1;
+    background: rgba(25, 25, 25, 0);
+
+    color: rgba(210,200,152,1.0);
+    transition: background-color .2s;
+}
+
+.modules-left,
+.modules-center,
+.modules-right
+{
+    background: rgba(30,30,30, 0);
+    margin: 2px 2px;
+    padding: 0;
+    border-radius: 3px;
+}
+#cava,
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#network,
+#pulseaudio,
+#wireplumber,
+#backlight,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#language,
+#custom-notification,
+#mpd {
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+#cava:hover,
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#backlight:hover,
+#custom-notification:hover,
+#network:hover,
+#pulseaudio:hover,
+#wireplumber:hover,
+#custom-media:hover,
+#tray:hover,
+#mode:hover,
+#idle_inhibitor:hover,
+#scratchpad:hover,
+#power-profiles-daemon:hover,
+#language:hover,
+#mpd:hover {
+  background: none;
+  color: rgba(255, 100, 100, 1);
+  box-shadow: none;
+}
+
+#workspaces button {
+  background: transparent;
+  color: rgba(210,200,152,1.0);
+  border:none;
+  border-radius: 3px;
+}
+
+#workspaces button.active {
+    background: none;
+}
+
+#workspaces button:hover {
+  background: none;
+  color: rgba(255, 100, 100, 1);
+  box-shadow: none;
+}
+
+#custom-arch {
+    margin-top: 1px;
+    margin-left: 1px;
+    padding: 0 10px;
+    font-size: 16px;
+    transition: color .2s;
+}
+#custom-arch:hover {
+    color: rgba(23, 147, 209, 1);
+}

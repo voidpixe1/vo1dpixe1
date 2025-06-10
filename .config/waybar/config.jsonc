@@ -1,0 +1,23 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 8,
+    "spacing": 1,
+    "modules-left": [
+        "hyprland/workspaces",
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/notification",
+        "pulseaudio#input",
+        "pulseaudio#output",
+        "network",
+        "backlight",
+        "battery"
+    ],
+    "include": [
+		"~/.config/waybar/modules.json"
+	]
+}

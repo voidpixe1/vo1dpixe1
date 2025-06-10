@@ -1,0 +1,4 @@
+gui:
+  sidePanelWidth: 0.25
+  shortTimeFormat: 15:04
+  border: single

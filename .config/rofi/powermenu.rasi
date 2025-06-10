@@ -1,0 +1,5 @@
+configuration {
+    font: "DejaVuSansM Nerd Font Mono 12";
+    show-icons: false;
+    display-drun: "";
+}

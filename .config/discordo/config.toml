@@ -1,0 +1,88 @@
+mouse = true
+hide_blocked_users = true
+messages_limit = 170
+editor = "nvim"
+show_attachment_links = false
+markdown_enabled = true
+
+[timestamps]
+enabled = true
+format = "15:04"
+
+[identify]
+status = ""
+
+[keys]
+focus_guilds_tree = "Ctrl+G"
+focus_messages_text = "Ctrl+T"
+focus_message_input = "Ctrl+P"
+toggle_guilds_tree = "Ctrl+B"
+logout = "Ctrl+D"
+quit = "Ctrl+C"
+
+[keys.guilds_tree]
+select_previous = "Rune[k]"
+select_next = "Rune[j]"
+select_first = "Rune[g]"
+select_last = "Rune[G]"
+select_current = "Rune[ ]"
+yank_id = "Rune[i]"
+collapse_parent_node = "Rune[-]"
+move_to_parent_node = "Rune[p]"
+
+[keys.messages_text]
+select_previous = "Rune[k]"
+select_next = "Rune[j]"
+select_first = "Rune[g]"
+select_last = "Rune[G]"
+select_reply = "Rune[s]"
+select_pin = "Rune[p]"
+reply = "Rune[r]"
+reply_mention = "Rune[R]"
+delete = "Rune[D]"
+open = "Rune[o]"
+yank_content = "Rune[y]"
+yank_url = "Rune[u]"
+yank_id = "Rune[i]"
+
+[theme]
+background_color = "#000000"
+
+[theme.title]
+style = { foreground = "#d4be98" }
+active_style = { foreground = "#ea6962" }
+alignment = "center"
+
+[theme.border]
+enabled = true
+padding = [ 0, 0, 1, 1]
+style = { foreground = "#a89984" }
+active_style = { foreground = "#ea6962" }
+set = "plain"
+
+[theme.guilds_tree]
+auto_expand_folders = false
+graphics = true
+channel_color = "#a9b665"
+guild_color = "#a9b665"
+private_channel_color = "#a9b665"
+
+[theme.messages_text]
+show_user_nicks = true
+show_user_colors = true
+reply_indicator = "↱"
+forward_indicator = "<"
+author_color = "#a9b665"
+content_color = "#d4be98"
+reaction_color = "#a9b665"
+emoji_color = "#d4be98"
+link_color = "#e78a4e"
+attachment_color = "#e78a4e"
+
+[notifications]
+enabled = true
+duration = 600
+
+[notifications.sound]
+enabled = false
+only_on_ping = false

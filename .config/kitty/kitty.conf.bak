@@ -1,0 +1,67 @@
+allow_remote_control yes
+
+background_opacity  0.32
+
+# KITTY_FONTS
+font_size           13.5
+
+# Keybinds so that they do not conflict with other settings
+map ctrl+shift+n launch
+map ctrl+shift+w none
+
+# gruvbox material (sorta) theme
+cursor                  #ebdbb2
+cursor_text_color       #1d2021
+
+url_color               #7daea3
+
+visual_bell_color       #89b482
+bell_border_color       #89b482
+
+active_border_color     #d3869b
+inactive_border_color   #5a524c
+
+foreground              #d4be98
+selection_foreground    #928374
+selection_background    #d4be98
+
+active_tab_foreground   #fbf1c7
+active_tab_background   #5a524c
+inactive_tab_foreground #a89984
+inactive_tab_background #3c3836
+
+color0                  #5a524c
+color8                  #665c54
+
+color1                  #ea6962
+color9                  #ef938e
+
+color2                  #a9b665
+color10                 #b0c47f
+
+color3                  #d8a657
+color11                 #e1bb80
+
+color4                  #7daea3
+color12                 #9dc6b0
+
+color5                  #d3869b
+color13                 #e1acbb
+
+color6                  #89b482
+color14                 #a7cba1
+
+color7                  #a89984
+color15                 #bdae93
+# font_family      family="Hack Nerd Font Mono"
+# bold_font        auto
+# italic_font      auto
+# bold_italic_font auto
+
+
+# BEGIN_KITTY_FONTS
+font_family      family="FiraCode Nerd Font Mono"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS

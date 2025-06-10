@@ -1,0 +1,102 @@
+* {
+g-spacing: 5px;
+g-margin: 0;
+b-color: #282828FF;
+fg-color: #d4be98FF;
+fgp-color: #a89984FF;
+b-radius: 3px;
+g-padding: 6px;
+hl-color: #d4be98FF;
+hlt-color: #282828FF;
+alt-color: #28282800;
+wbg-color: #00000035;
+w-border: 2px solid;
+w-border-color: #d4be98FF;
+w-padding: 12px;
+}
+
+configuration {
+    font: "DejaVuSansM Nerd Font Mono 12";
+    display-emoji: "";
+    emoji-format: "emoji";
+    me-select-entry: "MousePrimary";
+    me-accept-entry: "";
+}
+
+listview {
+    columns: 1;
+    cycle: true;
+    scrollbar: false;
+    border: 0px solid;
+}
+
+window {
+    transparency: "real";
+    width: 450px;
+    height: 410px;
+    border-radius: @b-radius;
+    background-color: @wbg-color;
+    border: @w-border;
+    border-color: @w-border-color;
+    padding: @w-padding;
+}
+
+prompt {
+    text-color: @fg-color;
+}
+
+inputbar {
+    children: ["prompt", "entry"];
+    spacing: @g-spacing;
+}
+
+entry {
+    placeholder: "";
+    horizontal-align: 0.45;
+    text-color: @fg-color;
+    placeholder-color: @fgp-color;
+}
+
+mainbox {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    children: ["inputbar", "listview", "message"];
+}
+
+element {
+    spacing: @g-spacing;
+    margin: @g-margin;
+    padding: @g-padding;
+    border-radius: @b-radius;
+    border-color: @b-color;
+    background-color: transparent;
+    text-color: @fg-color;
+}
+
+element normal.normal {
+	background-color: transparent;
+	text-color: @fg-color;
+}
+
+element alternate.normal {
+	background-color: @alt-color;
+	text-color: @fg-color;
+}
+
+element selected.active {
+	background-color: @hl-color;
+	text-color: @hlt-color;
+}
+
+element selected.normal {
+	background-color: @hl-color;
+	text-color: @hlt-color;
+}
+
+message {
+    background-color: @fg-color;
+    border-radius: @b-radius;
+    border: 0px solid;
+}
+

@@ -1,0 +1,111 @@
+# Zathura configuration file
+# See man `man zathurarc'
+
+#========================================================================#
+# THIS IS NOT MY CONFIG I "BORROWED" IT FROM SOMEONE A LONG TIME AGO     #
+# AND I CAN'T REMEMBER WHO IT WAS, SO IF YOU FIND THIS PLEASE CONTACT    #
+# ME SO I CAN CREDIT YOU                                                 #
+#========================================================================#
+
+#==============================[ SETTINGS ]==============================#
+
+# Don't copy the highlights
+set selection-clipboard clipboard
+
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# One page per row by default
+set pages-per-row 1
+
+#stop at page boundries
+set scroll-page-aware "true"
+set smooth-scroll "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+#zoom settings
+set zoom-min 10
+set guioptions ""
+
+set render-loading "false"
+set scroll-step 50
+
+# zathurarc-dark
+set font "Terminess Nerd Font 15"
+
+#====================[ GRUVBOX MATERIAL COLOR THEME ]====================#
+
+set notification-error-bg       "rgba(29,32,33,1)"     
+set notification-error-fg       "rgba(234,105,98,1)"    
+set notification-warning-bg     "rgba(29,32,33,1)"     
+set notification-warning-fg     "rgba(216,166,87,1)"   
+set notification-bg             "rgba(29,32,33,1)"     
+set notification-fg             "rgba(137,180,130,1)"   
+
+set completion-bg               "rgba(80,73,69,1)"     
+set completion-fg               "rgba(212,190,152,1)"  
+set completion-group-bg         "rgba(60,56,54,1)"     
+set completion-group-fg         "rgba(146,131,116,1)"  
+set completion-highlight-bg     "rgba(125,174,163,1)"  
+set completion-highlight-fg     "rgba(80,73,69,1)"     
+
+# Define the color in index mode
+set index-bg                    "rgba(80,73,69,0)"     
+set index-fg                    "rgba(212,190,152,1)"  
+set index-active-bg             "rgba(125,174,163,1)"  
+set index-active-fg             "rgba(80,73,69,1)"     
+
+set inputbar-bg                 "rgba(29,32,33,1)"     
+set inputbar-fg                 "rgba(212,190,152,1)"  
+
+set statusbar-bg                "rgba(80,73,69,1)"     
+set statusbar-fg                "rgba(212,190,152,1)"  
+
+set highlight-color             "rgba(211,134,155,0.2)"
+set highlight-active-color      "rgba(225,172,187,0.2)"
+
+set default-bg                  "rgba(29,32,33,1)"     
+set default-fg                  "rgba(212,190,152,1)"  
+set render-loading              true
+set render-loading-bg           "rgba(29,32,33,1)"     
+set render-loading-fg           "rgba(212,190,152,1)"  
+
+# Recolor book content's color
+set recolor-lightcolor          "rgba(29,32,33,1)"     
+set recolor-darkcolor           "rgba(212,190,152,1)"  
+set recolor                     "true"
+set recolor-keephue             "true"                  
+set recolor-reverse-video       "true"
+
+#===============================[ REMAPS ]===============================#
+
+# Booklet Mode Toggle
+map b toggle_page_mode
+map [fullscreen] b toggle_page_mode
+
+# i - Dark Mode Toggle
+map i recolor
+map [fullscreen] i recolor
+
+# f - fullscreen
+unmap f
+map f toggle_fullscreen 
+map [fullscreen] f toggle_fullscreen
+
+# q - Quit
+map q quit
+map [fullscreen] q quit
+
+
+# j/k - Smooth Scroll
+map j feedkeys "<C-Down>"
+map k feedkeys "<C-Up>"
+
+# zoom page
+map 0 zoom "default"
+map - zoom "out"
+map = zoom "in"
+map [fullscreen] 0 zoom "default"
+map [fullscreen] - zoom "out"
+map [fullscreen] = zoom "in"
