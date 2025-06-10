@@ -1,0 +1,17 @@
+#!/bin/bash
+
+sleep 0.1
+dir=~/Pictures/Screenshots
+mkdir -p "$dir"
+file="$dir/screenshot_$(date +%F_%H-%M-%S).png"
+
+screenshot_full() {
+    grim "$file" && notify-send --urgency=low -i "$file" "Fullscreen screenshot saved 📸" || notify-send --urgency=low "Screenshot failed ❌"
+}
+
+screenshot_region() {
+    region=$(slurp) || { notify-send --urgency=low "Screenshot cancelled ❌"; exit 1; }
+    grim -g "$region" "$file" && notify-send --urgency=low -i "$file" "Screenshot saved 📸" || notify-send --urgency=low "Screenshot failed ❌"
+}
+
+[[ $1 == "--full" ]] && screenshot_full || screenshot_region

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+rg --color=always --line-number --no-heading --smart-case "${*:-}" |
+fzf --ansi \
+    --layout="reverse" \
+    --delimiter : \
+    --preview 'bat --theme=gruvbox-material-dark --style=numbers --color=always {1} --highlight-line {2}' \
+    --preview-window 'up:60%,+{2}+3/3' \
+    --bind "enter:become(nvim {1} +{2})"

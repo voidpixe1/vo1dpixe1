@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+fzfm() {
+    while true; do
+        selection=$( (echo ".."; ls -1A --color=always) | fzf \
+            --ansi \
+            --reverse \
+            --height 100% \
+            --info right \
+            --prompt "Search: " \
+            --border-label=" $(pwd)/ " \
+            --border-label-pos center \
+            --color 'bg+:#3c3836' \
+            --bind "enter:accept" \
+            --bind "K:preview-up" \
+            --bind "J:preview-down" \
+            --bind "ctrl-r:reload(ls -1A --color=always)" \
+            --preview-window="right:65%" \
+            --preview "fzf-preview {}")
+
+        [[ -z "$selection" ]] && break
+
+        if [[ "$selection" == ".." ]]; then
+            cd .. || break
+        elif [[ -d "$selection" ]]; then
+            cd "$selection" || break
+        else
+            realpath "$selection"
+            break
+        fi
+    done
+}
+
+fzfm

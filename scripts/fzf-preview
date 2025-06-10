@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# Usage check
+if [[ $# -ne 1 ]]; then
+  >&2 echo "usage: $0 FILENAME[:LINENO][:IGNORED]"
+  exit 1
+fi
+
+file=${1/#\~\//$HOME/}
+
+center=0
+if [[ ! -r $file ]]; then
+  if [[ $file =~ ^(.+):([0-9]+)\ *$ ]] && [[ -r ${BASH_REMATCH[1]} ]]; then
+    file=${BASH_REMATCH[1]}
+    center=${BASH_REMATCH[2]}
+  elif [[ $file =~ ^(.+):([0-9]+):[0-9]+\ *$ ]] && [[ -r ${BASH_REMATCH[1]} ]]; then
+    file=${BASH_REMATCH[1]}
+    center=${BASH_REMATCH[2]}
+  fi
+fi
+
+type=$(file --brief --dereference --mime -- "$file")
+
+# If it's a video file, generate and display a thumbnail
+if [[ $type =~ video/ ]]; then
+  thumbnail=$(mktemp /tmp/video_thumbnail_XXXXXX.png)
+  ffmpeg -y -i "$file" -vf "thumbnail,scale=640:480" -vframes 1 "$thumbnail" &>/dev/null
+
+  if [[ -f $thumbnail ]]; then
+    dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
+
+    if [[ $KITTY_WINDOW_ID ]]; then
+      kitten icat --clear --transfer-mode=memory --unicode-placeholder --stdin=no --place="$dim@0x0" "$thumbnail" | sed '$d' | sed $'$s/$/\e[m/'
+    fi
+
+    rm "$thumbnail"
+  else
+    echo "Failed to generate video thumbnail."
+  fi
+  exit
+fi
+
+# If it's an image file, handle it normally
+if [[ $type =~ image/ ]]; then
+  dim=${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}
+  if [[ $dim = x ]]; then
+    dim=$(stty size < /dev/tty | awk '{print $2 "x" $1}')
+  fi
+
+  # Use icat (from Kitty) if kitten is installed
+  if [[ $KITTY_WINDOW_ID ]] || [[ $GHOSTTY_RESOURCES_DIR ]] && command -v kitten > /dev/null; then
+    kitten icat --clear --transfer-mode=memory --unicode-placeholder --stdin=no --place="$dim@0x0" "$file" | sed '$d' | sed $'$s/$/\e[m/'
+
+  # idk how any other image preview protocols work :(
+
+  # Cannot find any suitable method to preview the image
+  else
+    file "$file"
+  fi
+  exit
+fi
+
+# Handle other file types (like binary or text) as usual
+if [[ $type =~ =binary ]]; then
+  file "$1"
+  exit
+fi
+
+bat --style="numbers" --color=always "$file"
